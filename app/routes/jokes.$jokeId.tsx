@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import type {
   ActionFunctionArgs,
   LoaderFunctionArgs,
@@ -43,6 +44,7 @@ export const loader = async ({
   const joke = await db.joke.findUnique({
     where: { id: params.jokeId },
   });
+    console.log("🚀 ~ params.jokeId:", params.jokeId)
   if (!joke) {
     throw new Response("What a joke! Not found.", {
       status: 404,
